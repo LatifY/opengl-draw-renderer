@@ -16,4 +16,5 @@ This project is a simple and fun drawing tool built with C and OpenGL. It uses t
 ---
 
 Modified by LatifY
+
 Copyright (c) 2024 Magicalbat
