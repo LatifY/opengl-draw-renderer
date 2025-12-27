@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"C:/dev/c/glsl-writing-renderer/build/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

@@ -1,0 +1,3 @@
+C:/dev/c/glsl-writing-renderer/build/CMakeFiles/OpenGL-Drawing-C.dir
+C:/dev/c/glsl-writing-renderer/build/CMakeFiles/ALL_BUILD.dir
+C:/dev/c/glsl-writing-renderer/build/CMakeFiles/ZERO_CHECK.dir

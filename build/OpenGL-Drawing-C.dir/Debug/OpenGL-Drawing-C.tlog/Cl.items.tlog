@@ -1,0 +1,14 @@
+C:\dev\c\glsl-writing-renderer\src\base\base_math.c;C:\dev\c\glsl-writing-renderer\build\OpenGL-Drawing-C.dir\Debug\base_math.obj
+C:\dev\c\glsl-writing-renderer\src\base\base_str.c;C:\dev\c\glsl-writing-renderer\build\OpenGL-Drawing-C.dir\Debug\base_str.obj
+C:\dev\c\glsl-writing-renderer\src\draw\draw.c;C:\dev\c\glsl-writing-renderer\build\OpenGL-Drawing-C.dir\Debug\draw.obj
+C:\dev\c\glsl-writing-renderer\src\draw\draw_point_bucket.c;C:\dev\c\glsl-writing-renderer\build\OpenGL-Drawing-C.dir\Debug\draw_point_bucket.obj
+C:\dev\c\glsl-writing-renderer\src\draw\opengl\gl_impl_lines.c;C:\dev\c\glsl-writing-renderer\build\OpenGL-Drawing-C.dir\Debug\gl_impl_lines.obj
+C:\dev\c\glsl-writing-renderer\src\gfx\opengl\opengl_helpers.c;C:\dev\c\glsl-writing-renderer\build\OpenGL-Drawing-C.dir\Debug\opengl_helpers.obj
+C:\dev\c\glsl-writing-renderer\src\gfx\opengl\opengl_linux.c;C:\dev\c\glsl-writing-renderer\build\OpenGL-Drawing-C.dir\Debug\opengl_linux.obj
+C:\dev\c\glsl-writing-renderer\src\gfx\opengl\opengl_wasm.c;C:\dev\c\glsl-writing-renderer\build\OpenGL-Drawing-C.dir\Debug\opengl_wasm.obj
+C:\dev\c\glsl-writing-renderer\src\gfx\opengl\opengl_win32.c;C:\dev\c\glsl-writing-renderer\build\OpenGL-Drawing-C.dir\Debug\opengl_win32.obj
+C:\dev\c\glsl-writing-renderer\src\main.c;C:\dev\c\glsl-writing-renderer\build\OpenGL-Drawing-C.dir\Debug\main.obj
+C:\dev\c\glsl-writing-renderer\src\os\os_linux.c;C:\dev\c\glsl-writing-renderer\build\OpenGL-Drawing-C.dir\Debug\os_linux.obj
+C:\dev\c\glsl-writing-renderer\src\os\os_wasm.c;C:\dev\c\glsl-writing-renderer\build\OpenGL-Drawing-C.dir\Debug\os_wasm.obj
+C:\dev\c\glsl-writing-renderer\src\os\os_windows.c;C:\dev\c\glsl-writing-renderer\build\OpenGL-Drawing-C.dir\Debug\os_windows.obj
+C:\dev\c\glsl-writing-renderer\src\third_party\mg\mg_impl.c;C:\dev\c\glsl-writing-renderer\build\OpenGL-Drawing-C.dir\Debug\mg_impl.obj
