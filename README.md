@@ -1,5 +1,7 @@
 # Drawing Tool with OpenGL in C
 
+![](videogif.gif)
+
 This project is a simple and fun drawing tool built with C and OpenGL. It uses the GPU to render strokes, not just pixels, so your lines are drawn using geometry for smooth and fast results.
 
 ## CMake configuration
