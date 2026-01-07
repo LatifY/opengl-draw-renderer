@@ -1,6 +1,6 @@
-^C:\DEV\C\GLSL-WRITING-RENDERER\BUILD\CMAKEFILES\A7BF44C8B4C4C45BF508634217959896\GENERATE.STAMP.RULE
+^C:\DEV\C\OPENGL-DRAW-RENDERER\BUILD\CMAKEFILES\BD453BD17DECB4465154C08AAE2CBBF1\GENERATE.STAMP.RULE
 setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SC:/dev/c/glsl-writing-renderer -BC:/dev/c/glsl-writing-renderer/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/dev/c/glsl-writing-renderer/build/OpenGL-Drawing-C.sln
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/dev/c/opengl-draw-renderer -BC:/dev/c/opengl-draw-renderer/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/dev/c/opengl-draw-renderer/build/OpenGL-Drawing-C.sln
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone

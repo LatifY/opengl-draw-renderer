@@ -41,7 +41,7 @@ typedef struct
 
 app_config load_config(const char *filename)
 {
-    app_config config = {10.0f, 5.0f, 1.0f, 1.0f, 1.0f}; // Defaults
+    app_config config = {10.0f, 5.0f, 1.0f, 1.0f, 1.0f}; // defaults
     FILE *f = fopen(filename, "r");
     if (f)
     {
@@ -96,6 +96,8 @@ void mga_err(mga_error err)
 {
     printf("MGA ERROR %d: %s", err.code, err.msg);
 }
+
+
 int main(void)
 {
     mga_desc desc = {
@@ -255,6 +257,30 @@ int main(void)
             view.center.x += move_speed * delta;
         }
 
+        //handle mouse drag
+        static b32 middle_dragging = false;
+        static vec2f drag_start_mouse;
+        static vec2f drag_start_center;
+
+        if (GFX_IS_MOUSE_JUST_DOWN(win, GFX_MB_MIDDLE))
+        {
+            middle_dragging = true;
+            drag_start_mouse = win->mouse_pos;
+            drag_start_center = view.center;
+        }
+        if (GFX_IS_MOUSE_JUST_UP(win, GFX_MB_MIDDLE)){
+            middle_dragging = false;
+        }
+
+        if(middle_dragging){
+            vec2f delta = vec2f_sub(win->mouse_pos, drag_start_mouse);
+            delta.x *= view.width / win->width;
+            delta.y *= (view.width / view.aspect_ratio) / win->height;
+
+            view.center = vec2f_sub(drag_start_center, delta);
+        }
+
+
         mat3f_from_view(&view_mat, view);
 
         mat3f_inverse(&inv_view_mat, &view_mat);
@@ -285,43 +311,55 @@ int main(void)
         b32 click_on_ui = false;
         vec2f screen_mouse_pos = win->mouse_pos;
 
-        if (GFX_IS_MOUSE_JUST_DOWN(win, GFX_MB_LEFT))
+        if (GFX_IS_MOUSE_DOWN(win, GFX_MB_LEFT) || GFX_IS_MOUSE_JUST_UP(win, GFX_MB_LEFT))
         {
             for (int i = 0; i < NUM_COLORS; i++)
             {
                 if (vec2f_in_rectf(screen_mouse_pos, color_buttons[i]))
                 {
-                    color_idx = i;
-                    current_color = colors[i];
-                    eraser_mode = false;
                     click_on_ui = true;
+                    if (GFX_IS_MOUSE_JUST_DOWN(win, GFX_MB_LEFT))
+                    {
+                        color_idx = i;
+                        current_color = colors[i];
+                        eraser_mode = false;
+                    }
                     break;
                 }
             }
             if (!click_on_ui && vec2f_in_rectf(screen_mouse_pos, eraser_button))
             {
-                eraser_mode = true;
                 click_on_ui = true;
+                if (GFX_IS_MOUSE_JUST_DOWN(win, GFX_MB_LEFT))
+                {
+                    eraser_mode = true;
+                }
             }
             if (!click_on_ui && vec2f_in_rectf(screen_mouse_pos, size_up_button))
             {
-                brush_size += 2.0f;
-                if (brush_size > 50.0f)
-                    brush_size = 50.0f;
-                eraser_size += 5.0f;
-                if (eraser_size > 100.0f)
-                    eraser_size = 100.0f;
                 click_on_ui = true;
+                if (GFX_IS_MOUSE_JUST_DOWN(win, GFX_MB_LEFT))
+                {
+                    brush_size += 2.0f;
+                    if (brush_size > 50.0f)
+                        brush_size = 50.0f;
+                    eraser_size += 5.0f;
+                    if (eraser_size > 100.0f)
+                        eraser_size = 100.0f;
+                }
             }
             if (!click_on_ui && vec2f_in_rectf(screen_mouse_pos, size_down_button))
             {
-                brush_size -= 2.0f;
-                if (brush_size < 1.0f)
-                    brush_size = 1.0f;
-                eraser_size -= 5.0f;
-                if (eraser_size < 5.0f)
-                    eraser_size = 5.0f;
                 click_on_ui = true;
+                if (GFX_IS_MOUSE_JUST_DOWN(win, GFX_MB_LEFT))
+                {
+                    brush_size -= 2.0f;
+                    if (brush_size < 1.0f)
+                        brush_size = 1.0f;
+                    eraser_size -= 5.0f;
+                    if (eraser_size < 5.0f)
+                        eraser_size = 5.0f;
+                }
             }
         }
 
@@ -329,6 +367,8 @@ int main(void)
 
         if (click_on_ui)
         {
+            prev_point = mouse_pos;
+            prev_prev_point = mouse_pos;
         }
         else if (GFX_IS_MOUSE_JUST_DOWN(win, GFX_MB_LEFT))
         {

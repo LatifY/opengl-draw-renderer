@@ -2,10 +2,10 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>C:\dev\c\glsl-writing-renderer\build\x64\Debug\ZERO_CHECK</FullPath>
+      <FullPath>C:\dev\c\opengl-draw-renderer\build\x64\Debug\ZERO_CHECK</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>C:\dev\c\glsl-writing-renderer\build\Debug\OpenGL-Drawing-C.exe</FullPath>
+      <FullPath>C:\dev\c\opengl-draw-renderer\build\Debug\OpenGL-Drawing-C.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

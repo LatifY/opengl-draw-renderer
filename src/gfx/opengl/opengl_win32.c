@@ -270,11 +270,31 @@ static LRESULT CALLBACK w32_window_proc(HWND hWnd, UINT uMsg, WPARAM wParam, LPA
         } break;
 
         case WM_KEYDOWN: {
-            gfx_key down_key = w32_keymap[wParam];
+            UINT vk = (UINT)wParam;
+            UINT scancode = (lParam >> 16) & 0xFF;
+            b32 extended = (lParam >> 24) & 1;
+            if (vk == VK_CONTROL) {
+                vk = extended ? VK_RCONTROL : VK_LCONTROL;
+            } else if (vk == VK_SHIFT) {
+                vk = MapVirtualKey(scancode, MAPVK_VSC_TO_VK_EX);
+            } else if (vk == VK_MENU) {
+                vk = extended ? VK_RMENU : VK_LMENU;
+            }
+            gfx_key down_key = w32_keymap[vk];
             win->keys[down_key] = true;
         } break;
         case WM_KEYUP: {
-            gfx_key up_key = w32_keymap[wParam];
+            UINT vk = (UINT)wParam;
+            UINT scancode = (lParam >> 16) & 0xFF;
+            b32 extended = (lParam >> 24) & 1;
+            if (vk == VK_CONTROL) {
+                vk = extended ? VK_RCONTROL : VK_LCONTROL;
+            } else if (vk == VK_SHIFT) {
+                vk = MapVirtualKey(scancode, MAPVK_VSC_TO_VK_EX);
+            } else if (vk == VK_MENU) {
+                vk = extended ? VK_RMENU : VK_LMENU;
+            }
+            gfx_key up_key = w32_keymap[vk];
             win->keys[up_key] = false;
         } break;
 
